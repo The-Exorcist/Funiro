@@ -1,0 +1,235 @@
+@use "sass:math";
+
+.footer {
+    // .footer__content
+
+    &__content {
+    }
+
+    // .footer__body
+
+    &__body {
+        display: grid;
+        border-top: 1px solid #d8d8d8;
+        grid-template-columns: rem(250) 1fr rem(290);
+        @include adaptiveValue("padding-top", 80, 30);
+        @include adaptiveValue("padding-bottom", 60, 30);
+        @include adaptiveValue("column-gap", 80, 0);
+        @media (max-width: $pc) {
+            grid-template-rows: auto auto;
+            grid-template-columns: 1fr rem(290);
+        }
+        @media (max-width: $tablet) {
+            display: block;
+        }
+    }
+
+    // .footer__main
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        @media (max-width: $pc) {
+            grid-column: span 2;
+            @include adaptiveValue("margin-bottom", 40, 30);
+        }
+        @media (max-width: $tablet) {
+            display: block;
+        }
+    }
+
+    // .footer__logo
+
+    &__logo {
+        margin: 0px 0px em(16, 24) 0px;
+    }
+
+    // .footer__text
+
+    &__text {
+        color: $grayColor;
+        line-height: 150%;
+        &:not(:last-child) {
+            margin: 0px 0px 1em 0px;
+        }
+    }
+
+    // .footer__contacts
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    // .footer__menu
+
+    &__menu {
+        @media (max-width: $tablet) {
+            @include adaptiveValue("margin-bottom", 40, 30);
+        }
+    }
+
+    // .footer__subscribe
+
+    &__subscribe {
+    }
+}
+
+.contacts-footer {
+    // .contacts-footer__item
+
+    &__item {
+        display: inline-flex;
+        align-items: center;
+        line-height: 150%;
+        color: $grayColor;
+        transition: color 0.3s ease 0s;
+        &::before {
+            margin: 0px rem(8) 0px 0px;
+        }
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 16, 10);
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                color: $orangeColor;
+            }
+        }
+    }
+}
+.item-location {
+}
+.menu-footer {
+    @media (min-width: $mobile) {
+        display: flex;
+    }
+
+    // .menu-footer__column
+
+    &__column {
+        @media (min-width: $mobile) {
+            flex: 0 1 33.3333%;
+        }
+        @media (max-width: $mobile) {
+            @include adaptiveValue("margin-bottom", 30, 15);
+        }
+    }
+
+    // .menu-footer__title
+
+    &__title {
+        cursor: default;
+        @media (min-width: $mobile) {
+            margin: 0px 0px em(16, 24) 0px;
+        }
+        ._init & {
+            display: flex;
+            width: 100%;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+            @extend ._icon-arrow-down;
+            &::before {
+                @extend %ic;
+                font-size: rem(12);
+                transition: transform 0.3s ease 0s;
+            }
+            &._active {
+                &::before {
+                    transform: rotate(-180deg);
+                }
+            }
+        }
+    }
+
+    // .menu-footer__list
+
+    &__list {
+        li {
+            &:not(:last-child) {
+                margin: 0px 0px rem(15) 0px;
+            }
+        }
+        @media (max-width: $mobile) {
+            padding: rem(15) 0px 0px 0px;
+        }
+    }
+
+    // .menu-footer__link
+
+    &__link {
+        color: $darkGrayColor;
+        font-weight: 500;
+        line-height: 120%;
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $orangeColor;
+            }
+        }
+    }
+}
+.footer-title {
+}
+.subscribe {
+    // .subscribe__title
+
+    &__title {
+        margin: 0px 0px em(16, 24) 0px;
+    }
+
+    // .subscribe__form
+
+    &__form {
+        position: relative;
+        display: flex;
+        .form__error {
+            position: absolute;
+            top: 100%;
+            left: rem(12);
+
+            font-size: rem(12);
+            color: red;
+            margin: rem(3) 0px 0px 0px;
+        }
+        input {
+            outline: none;
+        }
+    }
+
+    // .subscribe__button
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 rem(45);
+        height: rem(45);
+
+        font-size: rem(18);
+        color: #fff;
+        background-color: $orangeColor;
+        margin: 0px 0px 0px rem(4);
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: #be825c;
+            }
+        }
+    }
+}
+.subscribe {
+    // .subscribe__input
+
+    &__input {
+        width: 100%;
+        padding: 0px rem(12);
+        background-color: #f4f5f7;
+        color: #828282;
+    }
+}
+
+//====================================================================================================
+
+//====================================================================================================
